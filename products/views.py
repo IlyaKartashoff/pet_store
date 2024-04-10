@@ -13,6 +13,6 @@ def products(request):
     context = {
         'title': 'My Store - Каталог',
         'products': Product.objects.all(),
-        'category': ProductCategory.objects.all(),
+        'categories': ProductCategory.objects.all(),
     }
     return render(request=request, template_name='products/products.html', context=context)
