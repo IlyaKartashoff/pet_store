@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +11,7 @@
     <meta name="author" content="">
 
     <title>{{title}}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'vendor/icon/CT2.png' %}">
 
     <!-- Bootstrap core CSS -->
     <link href=" {% static "vendor/bootstrap/css/bootstrap.min.css" %} " rel="stylesheet">
@@ -32,10 +34,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url "products" %}">Каталог <i class="fas fa-shopping-bag"></i> </a>
+                    <a class="nav-link" href="{% url "products:index" %}">Каталог <i class="fas fa-shopping-bag"></i> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="users/login.html">Войти <i class="fas fa-sign-in-alt"></i></a>
+                    <a class="nav-link" href="{% url "users:login" %}">Войти <i class="fas fa-sign-in-alt"></i></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
