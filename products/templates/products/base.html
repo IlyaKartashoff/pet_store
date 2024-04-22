@@ -15,6 +15,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href=" {% static "vendor/bootstrap/css/bootstrap.min.css" %} " rel="stylesheet">
+    {% comment %} <!--js for FontAwesome -->
+    <script src="https://kit.fontawesome.com/0315bb2a3f.js" crossorigin="anonymous"></script> {% endcomment %}
 
     <!-- Custom styles for this template -->
 {% block css %}{% endblock css %}
@@ -27,6 +29,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{% url "index" %}">Store</a>
+        {% comment %} <a href="#">
+            <i class="fa-solid fa-fan" style="color: #ffffff;"></i>
+        </a> {% endcomment %}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
