@@ -22,5 +22,5 @@ class EmailVerification(models.Model):
             "Test verification email",
             "from@example.com",
             [self.user.email],
-           fail_silently=False
+           fail_silently=False,
         )
