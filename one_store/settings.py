@@ -148,4 +148,6 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.MD5PasswordHasher',
     'django.contrib.auth.hashers.CryptPasswordHasher',
 ]
+# Emails
 
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
