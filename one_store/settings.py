@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import APPEND_SLASH, AUTH_USER_MODEL, LOGIN_REDIRECT_URL, LOGIN_URL, LOGOUT_REDIRECT_URL, MEDIA_ROOT, MEDIA_URL, STATICFILES_DIRS
+from mail_secrets import YA_APP_PASS
+
+#from django.conf.global_settings import APPEND_SLASH, AUTH_USER_MODEL, EMAIL_HOST, EMAIL_HOST_PASSWORD, EMAIL_HOST_USER, EMAIL_PORT, EMAIL_USE_SSL, LOGIN_REDIRECT_URL, LOGIN_URL, LOGOUT_REDIRECT_URL, MEDIA_ROOT, MEDIA_URL, STATICFILES_DIRS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -165,4 +167,9 @@ PASSWORD_HASHERS = [
 ]
 # Emails
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'testkarstone@yandex.ru'
+EMAIL_HOST_PASSWORD = YA_APP_PASS
+EMAIL_USE_SSL = True
+

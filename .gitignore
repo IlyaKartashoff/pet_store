@@ -2,6 +2,7 @@
 venv/
 .pylintrc
 __pycache__
+mail_secrets.py
 
 #ide stuff
 .vscode

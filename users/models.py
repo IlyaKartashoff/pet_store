@@ -1,3 +1,5 @@
+from django.conf import settings
+
 from django.urls import reverse
 from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractUser
@@ -31,7 +33,7 @@ class EmailVerification(models.Model):
         send_mail(
             subject=subject,
             message=message,
-            from_email="from@example.com",
+            from_email=settings.EMAIL_HOST_USER,
             recipient_list=[self.user.email],
            fail_silently=False,
         )
