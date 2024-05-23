@@ -1,12 +1,12 @@
 from django.conf import settings
-
-from django.urls import reverse
-from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractUser
+from django.core.mail import send_mail
 from django.db import models
+from django.urls import reverse
 from django.utils.timezone import now
 
 from one_store.settings import DOMAIN_NAME
+
 
 class User(AbstractUser):
     image = models.ImageField(upload_to='users_images', null=True, blank=True)
