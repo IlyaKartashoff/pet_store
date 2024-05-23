@@ -54,6 +54,11 @@ INSTALLED_APPS = [
     'users',
 
     'debug_toolbar',
+    
+    #allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount.providers.github',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +73,9 @@ MIDDLEWARE = [
     
     # Debug toolbar  Middleware...
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+
+    # Allauth
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'one_store.urls'
@@ -178,3 +186,21 @@ EMAIL_HOST_USER = 'testkarstone@yandex.ru'
 EMAIL_HOST_PASSWORD = YA_APP_PASS
 EMAIL_USE_SSL = True
 
+
+#Allauth
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+        ],
+    }
+}
