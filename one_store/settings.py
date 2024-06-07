@@ -54,6 +54,14 @@ INSTALLED_APPS = [
     'users',
 
     'debug_toolbar',
+
+    # allauth
+
+    "django.contrib.sites",  # new
+    "allauth",  # new
+    "allauth.account",  # new
+    "allauth.socialaccount",  # new
+    "allauth.socialaccount.providers.github",  # new for GitHub provider
 ]
 
 MIDDLEWARE = [
@@ -64,6 +72,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    "allauth.account.middleware.AccountMiddleware",  # new
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
     # Debug toolbar  Middleware...
@@ -178,3 +187,32 @@ EMAIL_HOST_USER = 'testkarstone@yandex.ru'
 EMAIL_HOST_PASSWORD = YA_APP_PASS
 EMAIL_USE_SSL = True
 
+# allauth
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",  
+    "allauth.account.auth_backends.AuthenticationBackend",
+]  # new
+
+SITE_ID = 1  # new
+
+ACCOUNT_EMAIL_VERIFICATION = "none"  # new
+
+LOGIN_REDIRECT_URL = "/"  # new
+
+# new below
+# SOCIALACCOUNT_PROVIDERS = {
+#     "github": {
+#         "APP": {
+#             "client_id": "tikdtywhukihouyz",
+#             "secret": "454ae8073c6fa09aa12dd3f70f7a3e061646cd33",
+#         }
+#     }
+# }
+SOCIALACCOUNT_PROVIDERS = {
+    "github": {
+        "scope": [
+            'user',
+        ],
+    }
+}
