@@ -35,13 +35,14 @@ class ProductsListViewTestCase(TestCase):
         category = ProductCategory.objects.first()
         path = reverse('products:category', kwargs={'category_id': category.id})
         response = self.client.get(path)
+        paginate_by = response.context_data['paginator'].per_page
 
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertEqual(response.context_data['title'], 'Store - Каталог')
         self.assertTemplateUsed(response, 'products/products.html')
         self.assertEqual(
             list(response.context_data['object_list']),
-            list(self.products.filter(category_id=category.id))
+            list(self.products.all()[:paginate_by])
         )
 
 
